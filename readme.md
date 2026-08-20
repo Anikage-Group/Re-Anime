@@ -7,10 +7,9 @@
   </p>
 
   <p>
-    <a href="#-key-features">Features</a> •
-    <a href="#-tech-stack">Tech Stack</a> •
-    <a href="#-installation">Installation</a> •
-    <a href="#-contributing">Contributing</a>
+    <a href="#key-features">Features</a> •
+    <a href="#tech-stack">Tech Stack</a> •
+    <a href="#installation--local-development">Installation</a>
   </p>
 </div>
 
