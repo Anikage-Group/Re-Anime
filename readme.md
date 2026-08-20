@@ -5,12 +5,6 @@
   <p>
     NOTE: This is not the real Re:Anime. This repo is not affiliated to or related to Re:Anime in any way.
   </p>
-
-  <p>
-    <a href="#key-features">Features</a> •
-    <a href="#tech-stack">Tech Stack</a> •
-    <a href="#installation--local-development">Installation</a>
-  </p>
 </div>
 
 ---
