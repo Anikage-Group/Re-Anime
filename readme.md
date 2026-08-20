@@ -8,7 +8,11 @@
 </div>
 
 ---
-
+Deploy Reanime:
+<a href="https://vercel.com/new/clone?repository-url=https://github.com/Anikage-Group/Re:Anime&env=ANILIST_CLIENT_ID,ANILIST_CLIENT_SECRET,ANILIST_REDIRECT_URI,RESTATUS_URL,MANGA_VAULT_API_BASE,PROXY_API_BASE,FLIXCLOUDMAP_URL">
+  <img src="https://vercel.com/button" alt="Deploy with Vercel"/>
+</a>
+---
 ## 📖 Introduction
 
 **Re:Anime** is a highly polished, feature-rich anime & manga platform built for fans who want a seamless, ad-free experience. It hooks into AniList and utilizes the Miruro API to provide a comprehensive anime library — along with a fully integrated manga reader — all wrapped in a gorgeous Glassmorphism user interface.
