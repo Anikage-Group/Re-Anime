@@ -8,7 +8,7 @@
 </div>
 
 ---
-Deploy Reanime:
+Deploy Re:Anime to Vercel:</br>
 <a href="https://vercel.com/new/clone?repository-url=https://github.com/Anikage-Group/Re:Anime&env=ANILIST_CLIENT_ID,ANILIST_CLIENT_SECRET,ANILIST_REDIRECT_URI,RESTATUS_URL,MANGA_VAULT_API_BASE,PROXY_API_BASE,FLIXCLOUDMAP_URL">
   <img src="https://vercel.com/button" alt="Deploy with Vercel"/>
 </a>
