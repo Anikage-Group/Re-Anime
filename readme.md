@@ -19,6 +19,9 @@ Deploy Re:Anime to Vercel:</br>
 
 Our focus is entirely on usability, speed, and cross-platform consistency.
 
+| Index | Home | Search | Anime | Watch |
+| :---: | :--: | :----: | :---: | :---: |
+| <img src="images/index.png" width="150"> | <img src="images/home.png" width="150"> | <img src="images/search.png" width="150"> | <img src="images/anime.png" width="150"> | <img src="images/watch.png" width="150"> |
 ## ✨ Key Features
 
 - **🚫 Ad-Free Streaming & Reading**: Pure entertainment without popups, redirects, or visual clutter.
