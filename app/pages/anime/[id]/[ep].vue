@@ -275,7 +275,26 @@ async function fetchEpisodes() {
   episodesError.value = null
   try {
     const res = await $fetch(`/api/watch/${id.value}`)
-    episodes.value = res?.episodes || []
+    // Normalize episode numbers to a season-relative 1..N sequence.
+    // Some sources (TVDB in particular) number episodes absolutely/continuing
+    // across "parts" of a season — e.g. a Part 2 whose real episodes are
+    // 14-25 rather than 1-12. Every other API this page talks to (AniSkip
+    // skip times, continue-reading progress, thumbnail proxy keys, share
+    // links, the range grouping/search UI) assumes episode numbers start at
+    // 1 for whatever's currently airing, so we remap right at the source
+    // instead of threading "is this absolute or relative" through the rest
+    // of the app. The original number is kept as `absoluteNumber` in case
+    // it's ever needed (e.g. to cross-reference a thumbnail keyed by the
+    // TVDB episode id).
+    const rawEpisodes = res?.episodes || []
+    episodes.value = rawEpisodes
+      .slice()
+      .sort((a, b) => (epNum(a) ?? 0) - (epNum(b) ?? 0))
+      .map((e, i) => ({
+        ...e,
+        absoluteNumber: epNum(e),
+        number: i + 1
+      }))
     episodesSource.value = res?.source || null
     cacheSet(cacheKey, { episodes: episodes.value, source: episodesSource.value })
     // TEMP DIAGNOSTIC — remove once episode navigation is confirmed working.
@@ -446,12 +465,27 @@ const rangeOpen = ref(false)
 const activeRangeIndex = ref(0)
 const rangeShowAll = ref(false)
 
+// Some episode-list sources (TVDB in particular) number episodes with an
+// absolute/continuing scheme rather than starting at 1 — e.g. a "Part 2"
+// season whose episodes are numbered 14-25 instead of 1-12. Anchoring the
+// range groups at a hardcoded `1` breaks that case entirely: the group
+// becomes {1, episodeCount} (e.g. {1, 12}), every real episode number (14-25)
+// falls outside it, and the grid renders as "No episodes found" even though
+// the episodes loaded fine. Anchor at the actual min episode number present
+// in the data instead.
+const episodeNumberBounds = computed(() => {
+  const nums = displayEpisodes.value.map((e) => epNum(e)).filter((n) => n !== null)
+  if (!nums.length) return { min: 1, max: episodeCount.value }
+  return { min: Math.min(...nums), max: Math.max(...nums) }
+})
+
 const rangeGroups = computed(() => {
+  const { min, max } = episodeNumberBounds.value
   const groups = []
-  for (let start = 1; start <= episodeCount.value; start += 100) {
-    groups.push({ start, end: Math.min(start + 99, episodeCount.value) })
+  for (let start = min; start <= max; start += 100) {
+    groups.push({ start, end: Math.min(start + 99, max) })
   }
-  return groups.length ? groups : [{ start: 1, end: episodeCount.value }]
+  return groups.length ? groups : [{ start: min, end: max }]
 })
 
 const activeRangeLabel = computed(() => {
