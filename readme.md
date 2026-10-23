@@ -15,7 +15,7 @@ Deploy Re:Anime to Vercel:</br>
 ---
 ## 📖 Introduction
 
-**Re:Anime** is a highly polished, feature-rich anime & manga platform built for fans who want a seamless, ad-free experience. It hooks into AniList and utilizes the Miruro API to provide a comprehensive anime library — along with a fully integrated manga reader — all wrapped in a gorgeous Glassmorphism user interface.
+**Re:Anime** is a highly polished, feature-rich anime & manga platform built for fans who want a seamless, ad-free experience. It hooks into AniList and utilizes the Flixcloud API to provide a comprehensive anime library — along with a fully integrated manga reader — all wrapped in a gorgeous Glassmorphism user interface.
 
 Our focus is entirely on usability, speed, and cross-platform consistency.
 
