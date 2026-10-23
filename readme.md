@@ -92,9 +92,7 @@ Ready to run Re:Anime locally? Follow these steps:
 
 ## ⚙️ Integrations Setup Notes
 
-- **Flixcloud API**: You'll need access to a Flixcloud-compatible data API instance for anime indexing and m3u8 stream resolution. This can be found at our Github Page<a href="https://github.com/Anikage-Group/Flixcloud-api-lite">
-  Flixcloud API Lite
-</a>
+- **Flixcloud API**: You'll need access to a Flixcloud-compatible data API instance for anime indexing and m3u8 stream resolution. This can be found at our Github Page <a href="https://github.com/Anikage-Group/Flixcloud-api-lite">Flixcloud API Lite</a> or <a href="https://github.com/Anikage-Group/api">Anikage API</a>
 
 - **MangaVault API**: You'll need access to a MangaVault-compatible data API instance for manga indexing and page loading. This can be found at our Github Page<a href="https://github.com/Anikage-Group/Manga-API">
   Manga-API
